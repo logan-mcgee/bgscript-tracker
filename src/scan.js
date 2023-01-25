@@ -11,8 +11,10 @@ const RPF_NAME = 'bg_ng_2802_0';
 const RPF_URL = `http://prod.cloud.rockstargames.com/titles/gta5/pcros/bgscripts/${RPF_NAME}.rpf`;
 
 async function main() {
-  if (!fs.existsSync(RPF_NAME)) fs.mkdirSync(RPF_NAME);
-  if (!fs.existsSync(path.join(RPF_NAME, 'last-modified.txt'))) fs.writeFileSync(path.join(RPF_NAME, 'last-modified.txt'), 'Thu, 01 Jan 1970 00:00:00 GMT');
+  if (!fs.existsSync('bgscripts')) fs.mkdirSync('bgscripts');
+  const rpfPath = path.join('bgscripts', RPF_NAME);
+  if (!fs.existsSync(rpfPath)) fs.mkdirSync(rpfPath);
+  if (!fs.existsSync(path.join(rpfPath, 'last-modified.txt'))) fs.writeFileSync(path.join(rpfPath, 'last-modified.txt'), 'Thu, 01 Jan 1970 00:00:00 GMT');
 
   const response = await fetch(RPF_URL);
 
@@ -34,7 +36,7 @@ async function main() {
     return;
   }
 
-  const lastModifiedFile = path.join(RPF_NAME, 'last-modified.txt');
+  const lastModifiedFile = path.join(rpfPath, 'last-modified.txt');
   const lastModifiedFileDate = new Date(fs.readFileSync(lastModifiedFile, 'utf8'));
 
   if (lastModifiedFileDate.toString() === 'Invalid Date') {
@@ -56,7 +58,7 @@ async function main() {
   const fileNameDate = lastModifiedDate.toISOString().replaceAll(':', '-');
   const fileName = `${fileNameDate}-${crypto.createHash('sha256').update(buffer).digest('hex')}.rpf`;
 
-  fs.writeFileSync(path.join(RPF_NAME, fileName), buffer);
+  fs.writeFileSync(path.join(rpfPath, fileName), buffer);
 
   fs.writeFileSync(lastModifiedFile, lastModified);
 }

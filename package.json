@@ -5,7 +5,7 @@
   "main": "scan.js",
   "type": "module",
   "scripts": {
-    "scan": "node scan.js"
+    "scan": "node src/scan.js"
   },
   "repository": {
     "type": "git",
