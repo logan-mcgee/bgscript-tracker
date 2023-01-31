@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16
       - run: npm install
-      - run: npm run scan
+      - run: npm run scanv2
       - uses: mikeal/publish-to-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
