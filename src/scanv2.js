@@ -58,7 +58,7 @@ function main() {
         core.info(`${bgScriptName}: New bgscript available`);
 
         // get content as buffer
-        const buffer = Buffer.from(await response.arrayBuffer());
+        const buffer = Buffer.from(await response.body.arrayBuffer());
 
         const fileNameDate = lastModifiedDate.toISOString().replaceAll(':', '-');
         const fileName = `${fileNameDate}-${crypto.createHash('sha256').update(buffer).digest('hex')}.rpf`;
