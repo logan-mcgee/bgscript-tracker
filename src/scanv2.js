@@ -4,8 +4,8 @@ import path from 'node:path';
 import { request } from 'undici';
 import crypto from 'node:crypto';
 
-const STARTING_VERSION = 2944;
-const ENDING_VERSION = STARTING_VERSION + 50;
+const STARTING_VERSION = 3028;
+const ENDING_VERSION = STARTING_VERSION + 100;
 
 function main() {
   for (let subId = 0; subId <= 1; subId++) {
