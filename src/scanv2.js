@@ -4,7 +4,7 @@ import path from 'node:path';
 import { request } from 'undici';
 import crypto from 'node:crypto';
 
-const STARTING_VERSION = 3028;
+const STARTING_VERSION = 3095;
 const ENDING_VERSION = STARTING_VERSION + 100;
 
 function main() {
