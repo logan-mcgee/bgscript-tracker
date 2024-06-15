@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"path"
+	"strings"
 	"time"
 )
 
@@ -109,6 +110,11 @@ func main() {
 						return
 					}
 					isoTime := lastModifiedTime.Format(time.RFC3339)
+					isoTime = strings.ReplaceAll(isoTime, ":", "-")
+
+					if strings.Contains(isoTime, "+") {
+						isoTime = strings.Split(isoTime, "+")[0]
+					}
 
 					filePath = path.Join(filePath, fmt.Sprintf("%s_%s.rpf", isoTime, fileHash))
 
