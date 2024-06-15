@@ -9,7 +9,6 @@ import (
 	"net/http"
 	"os"
 	"path"
-	"strings"
 	"time"
 )
 
@@ -109,14 +108,9 @@ func main() {
 						fmt.Printf("Failed to parse Last-Modified header: %v\n", err)
 						return
 					}
-					isoTime := lastModifiedTime.Format(time.RFC3339)
-					isoTime = strings.ReplaceAll(isoTime, ":", "-")
+					newTime := lastModifiedTime.Format("2006-01-02T15-04-05")
 
-					if strings.Contains(isoTime, "+") {
-						isoTime = strings.Split(isoTime, "+")[0]
-					}
-
-					filePath = path.Join(filePath, fmt.Sprintf("%s_%s.rpf", isoTime, fileHash))
+					filePath = path.Join(filePath, fmt.Sprintf("%s_%s.rpf", newTime, fileHash))
 
 					os.WriteFile(filePath, file, 0755)
 				}(platform, gen, gameVersion, subId)
