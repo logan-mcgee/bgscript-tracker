@@ -108,9 +108,9 @@ func main() {
 						fmt.Printf("Failed to parse Last-Modified header: %v\n", err)
 						return
 					}
-					newTime := lastModifiedTime.Format("2006-01-02T15-04-05")
+					newTime := lastModifiedTime.Unix()
 
-					filePath = path.Join(filePath, fmt.Sprintf("%s_%s.rpf", newTime, fileHash))
+					filePath = path.Join(filePath, fmt.Sprintf("%d_%s.rpf", newTime, fileHash))
 
 					os.WriteFile(filePath, file, 0755)
 				}(platform, gen, gameVersion, subId)
