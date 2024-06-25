@@ -12,13 +12,13 @@ import (
 	"time"
 )
 
-const STARTING_GAMEVERSION = 3095
+const STARTING_GAMEVERSION = 3258
 const GAMEVERSION_RANGE = 100
 
 const SUBID_RANGE = 30
 
 var GEN_GAMEVERSIONS = map[int]int{
-	8: 3095,
+	8: 3179,
 	9: 554,
 }
 
