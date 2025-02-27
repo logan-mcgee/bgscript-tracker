@@ -12,23 +12,24 @@ import (
 	"time"
 )
 
-const STARTING_GAMEVERSION = 3258
 const GAMEVERSION_RANGE = 150
 
 const SUBID_RANGE = 30
 
 var GEN_GAMEVERSIONS = map[int]int{
 	8: 3337,
-	9: 653,
+	9: 772,
 }
 
 var PLATFORMS = map[string]int{
-	"pcros":   8,
+	"pcros": 8,
+
 	"ps4":     8,
 	"xboxone": 8,
 
-	"ps5":    9,
-	"xboxsx": 9,
+	"ps5":      9,
+	"xboxsx":   9,
+	"pcrosalt": 9,
 }
 
 const RPF_URL = "http://prod.cloud.rockstargames.com/titles/gta5/%s/bgscripts/bg_ng_%d_%d.rpf"
