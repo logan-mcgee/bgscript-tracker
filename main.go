@@ -14,7 +14,7 @@ import (
 
 const GAMEVERSION_RANGE = 150
 
-const SUBID_RANGE = 30
+const SUBID_RANGE = 50
 
 var GEN_GAMEVERSIONS = map[int]int{
 	8: 3717,
