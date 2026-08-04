@@ -17,8 +17,8 @@ const GAMEVERSION_RANGE = 150
 const SUBID_RANGE = 50
 
 var GEN_GAMEVERSIONS = map[int]int{
-	8: 3717,
-	9: 1013,
+	8: 3889,
+	9: 1158,
 }
 
 var PLATFORMS = map[string]int{
